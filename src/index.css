@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-red: #E8001D;
+  --color-brand-red-2: #ff2240;
+  --color-brand-red-3: #ff6680;
+  --color-brand-pink: #ff3355;
+  --color-brand-black: #040404;
+  --color-brand-space: #060608;
+  --color-brand-g1: #0e0e10;
+  --color-brand-g2: #161618;
+  --color-brand-g3: #202025;
+  --color-brand-white: #F5F0EE;
+  --color-brand-wdim: rgba(245, 240, 238, 0.75);
+  --color-brand-border: rgba(255, 255, 255, 0.06);
+  --color-brand-border-r: rgba(232, 0, 29, 0.25);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-space text-brand-white font-sans antialiased selection:bg-brand-red selection:text-white overflow-x-hidden;
+    cursor: none;
+  }
+
+  /* Accessibility: Visible focus ring for keyboard users */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-red ring-offset-2 ring-offset-brand-space;
+  }
+
+  body::after {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-[9997] opacity-[0.03];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px;
+  }
+
+  body::before {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-[9996];
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.07) 3px);
+  }
+}
+
+@layer components {
+  .bevel {
+    @apply text-brand-red;
+    -webkit-text-stroke: 1px rgba(255, 120, 140, 0.3);
+  }
+
+  .bevel-sm {
+    @apply text-brand-red;
+    -webkit-text-stroke: 0.5px rgba(255, 120, 140, 0.2);
+  }
+
+  .rev {
+    @apply opacity-0 translate-y-[22px] transition-all duration-1000 ease-out;
+  }
+
+  .rev.v {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .btn-glow {
+    @apply flex items-center gap-2.5 px-7 py-3.5 bg-brand-red text-white font-display text-[11px] tracking-[0.25em] uppercase transition-all relative overflow-hidden;
+  }
+  .btn-glow:hover {
+    @apply bg-brand-red-2 -translate-y-0.5;
+  }
+  .btn-glow::after {
+    content: '';
+    @apply absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full;
+    transition: transform 0.6s ease;
+  }
+  .btn-glow:hover::after {
+    @apply translate-x-full;
+  }
+
+  .btn-wire {
+    @apply flex items-center gap-2.5 px-7 py-3.5 border border-brand-white/30 text-brand-white/60 font-display text-[11px] tracking-[0.25em] uppercase transition-all;
+  }
+  .btn-wire:hover {
+    @apply border-brand-red/60 text-brand-white -translate-y-0.5;
+  }
+
+  .ticker {
+    @apply py-5 border-y border-brand-border bg-brand-black/40 backdrop-blur-sm relative z-20 overflow-hidden;
+  }
+}
+
+#cur {
+  @apply fixed w-[7px] h-[7px] bg-brand-red-2 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2;
+}
+
+#ring {
+  @apply fixed w-[30px] h-[30px] border border-brand-red/80 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-[0.12s] ease-out;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-brand-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-red;
+}
+
+@keyframes tick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-tick {
+  animation: tick 30s linear infinite;
+}
