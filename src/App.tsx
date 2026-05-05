@@ -53,6 +53,7 @@ const CONTENT: Content = {
   },
   sectionProcess: { pt: 'PROCESSO', en: 'PROCESS', es: 'PROCESO' },
   sectionEducation: { pt: 'FORMAÇÃO', en: 'EDUCATION', es: 'FORMACIÓN' },
+  sectionCourses: { pt: 'CURSOS & CERTIFICAÇÕES', en: 'COURSES & CERTIFICATIONS', es: 'CURSOS Y CERTIFICACIONES' },
   sectionContact: { pt: 'CONTATO', en: 'CONTACT', es: 'CONTACTO' },
   sectionContributions: { pt: 'CONTRIBUIÇÕES', en: 'CONTRIBUTIONS', es: 'CONTRIBUCIONES' },
   sectionPersonalProjects: { pt: 'PROJETOS PESSOAIS & FREELA', en: 'PERSONAL & FREELANCE PROJECTS', es: 'PROYECTOS PERSONALES Y FREELANCE' },
@@ -251,6 +252,35 @@ const EDUCATION = [
     school: "Faculdade Sumaré",
     year: "2016 - 2018"
   }
+];
+
+const COURSES = [
+  { course: "Digital Product Design", school: "Tera", year: "2025" },
+  { course: "UX Research: mapeando a experiência da pessoa usuária", school: "Alura", year: "2023" },
+  { course: "Adobe XD: trabalhando com microinterações", school: "Alura", year: "2023" },
+  { course: "Adobe XD: refinando o visual da interface", school: "Alura", year: "2023" },
+  { course: "Adobe XD: design visual de um site mobile", school: "Alura", year: "2023" },
+  { course: "Adobe XD: componentes da interface", school: "Alura", year: "2023" },
+  { course: "UX Research: Mapeando a jornada do usuário", school: "Alura", year: "2022" },
+  { course: "UX Design", school: "Awari", year: "2021" },
+  { course: "Competências do Líder: combinando hard e soft skills", school: "Universidade Anhembi Morumbi", year: "2020" },
+  { course: "Workshop Intensivo de 3 dias – Criando um projeto de UX", school: "EBAC", year: "2020" },
+  { course: "Teste de Usabilidade parte 2: Mensurando e entregando resultados", school: "Alura", year: "2020" },
+  { course: "Teste de usabilidade parte 1: Seu produto é fácil de usar?", school: "Alura", year: "2020" },
+  { course: "Prototipagem e UX parte 2: linkando telas no Adobe XD", school: "Alura", year: "2020" },
+  { course: "Prototipagem e UX parte 1: Alta fidelidade com o Adobe XD", school: "Alura", year: "2020" },
+  { course: "UI Design Patterns: Usabilidade em interfaces mobile", school: "Alura", year: "2020" },
+  { course: "UX: os erros frequentes de usabilidade e as boas práticas", school: "Alura", year: "2020" },
+  { course: "Revisão UX: ferramentas do briefing ao protótipo", school: "Alura", year: "2020" },
+  { course: "Design Thinking: Concretizando ideias", school: "Alura", year: "2020" },
+  { course: "Introdução ao Design System: escalando seu produto", school: "Alura", year: "2020" },
+  { course: "UX Produto: monitore, mensure e teste o seu projeto", school: "Alura", year: "2020" },
+  { course: "UX Usability: facilite a vida do seu usuário no mobile", school: "Alura", year: "2020" },
+  { course: "UX Strategy: divergindo e afunilando ideias", school: "Alura", year: "2020" },
+  { course: "UX: O que é Experiência do Usuário", school: "Alura", year: "2020" },
+  { course: "UX Writing: Conteúdo Focado no Usuário", school: "Alura", year: "2020" },
+  { course: "Branding", school: "Rock University", year: "2020" },
+  { course: "Especialista em Marketing de Conteúdo Avançado", school: "Rock University", year: "2019" },
 ];
 
 const SKILLS = {
@@ -697,12 +727,29 @@ export default function App() {
             <div className="flex-1 h-[1px] bg-linear-to-r from-brand-red/20 to-transparent" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
             {EDUCATION.map((edu, i) => (
-              <div key={i} className="p-8 bg-brand-g1 border-l-2 border-brand-red/30">
+              <div key={i} className="p-8 bg-brand-g1 border-l-2 border-brand-red/30 hover:border-brand-red transition-colors">
                 <div className="font-mono text-[10px] text-brand-red/80 mb-2">{edu.year}</div>
                 <h3 className="font-display text-2xl tracking-widest mb-2">{edu.degree[lang]}</h3>
                 <p className="font-mono text-[12px] text-brand-wdim uppercase tracking-widest">{edu.school}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-baseline gap-6 mb-12">
+            <h2 className="font-display text-2xl tracking-widest text-brand-red">{t('sectionCourses')}</h2>
+            <div className="flex-1 h-[1px] bg-brand-border" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+            {COURSES.map((c, i) => (
+              <div key={i} className="flex flex-col py-3 border-b border-brand-border/50 group hover:border-brand-red/50 transition-colors">
+                <h4 className="font-mono text-[11px] text-brand-white leading-relaxed group-hover:text-brand-red transition-colors">{c.course}</h4>
+                <div className="flex justify-between items-end mt-2">
+                  <span className="font-mono text-[9px] text-brand-wdim tracking-widest uppercase">{c.school}</span>
+                  <span className="font-mono text-[9px] text-brand-red/60">{c.year}</span>
+                </div>
               </div>
             ))}
           </div>
