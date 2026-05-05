@@ -55,6 +55,7 @@ const CONTENT: Content = {
   sectionEducation: { pt: 'FORMAÇÃO', en: 'EDUCATION', es: 'FORMACIÓN' },
   sectionContact: { pt: 'CONTATO', en: 'CONTACT', es: 'CONTACTO' },
   sectionContributions: { pt: 'CONTRIBUIÇÕES', en: 'CONTRIBUTIONS', es: 'CONTRIBUCIONES' },
+  sectionPersonalProjects: { pt: 'PROJETOS PESSOAIS & FREELA', en: 'PERSONAL & FREELANCE PROJECTS', es: 'PROYECTOS PERSONALES Y FREELANCE' },
   contactTitle: { pt: 'VAMOS<br>CRIAR<br>ALGO?', en: 'LET\'S<br>BUILD<br>SOMETHING?', es: 'VAMOS<br>A CREAR<br>ALGO?' },
   contactSub: { pt: 'Aberto a projetos e oportunidades', en: 'Open to projects and opportunities', es: 'Abierto a proyectos y oportunidades' }
 };
@@ -144,30 +145,60 @@ const PROJECTS = [
 
 const CONTRIBUTIONS = ["BATE-PAPO UOL", "UOL PLAY", "+ OUTROS"];
 
-const BEHANCE_PROJECTS = [
+const PERSONAL_PROJECTS = [
   {
-    id: "05",
-    name: "O ESOTÉRICO",
-    tags: ["UI Design", "Visual Identity", "Mobile"],
+    name: "MANEKI",
+    tags: ["Product Design", "Discord Bot", "UX/UI"],
+    link: "https://top.gg/pt/bot/1487940081044951090",
     desc: {
-      pt: "Design de interface e identidade visual para plataforma de esoterismo e bem-estar.",
-      en: "Interface design and visual identity for an esotericism and well-being platform.",
-      es: "Diseño de interfaz e identidad visual para plataforma de esoterismo y bienestar."
-    },
-    link: "https://www.behance.net/gallery/146524335/O-Esoterico-UI-Design"
+      pt: "Bot multifuncional para o Discord. Design de produto focado em utilidades de comunidade, moderação e engajamento.",
+      en: "Multifunctional Discord Bot. Product design focused on community utilities, moderation, and engagement.",
+      es: "Bot multifuncional para Discord. Diseño de producto centrado en utilidades de comunidad, moderación y compromiso."
+    }
   },
   {
-    id: "06",
-    name: "AI MVP DEVELOPMENT",
-    tags: ["AI", "Product Strategy", "MVP"],
+    name: "O ESOTÉRICO",
+    tags: ["UI Design", "AI Studio", "MVP"],
+    link: "https://www.behance.net/gallery/241427359/O-Esotrico-MVP-feito-com-AI-Studio",
     desc: {
-      pt: "Desenvolvimento de estratégia de produto e design para MVPs baseados em Inteligência Artificial.",
-      en: "Product strategy and design development for AI-based MVPs.",
-      es: "Desarrollo de estrategia de producto y diseño para MVPs basados en Inteligencia Artificial."
-    },
-    link: "https://www.behance.net/pedroyuritessari"
+      pt: "MVP de plataforma de esoterismo e bem-estar, feito com AI Studio. Envolveu visual identity, UI/UX e prompt engineering.",
+      en: "Esotericism and well-being platform MVP, built with AI Studio. Included visual identity, UI/UX, and prompt engineering.",
+      es: "MVP de plataforma de esoterismo y bienestar, hecho con AI Studio. Involucró identidad visual, UI/UX y prompt engineering."
+    }
+  },
+  {
+    name: "TOKYO",
+    tags: ["Discord Bot", "Web App", "Community"],
+    link: "https://tokyofk.lovable.app/",
+    desc: {
+      pt: "Bot para Discord com minigames e álbuns de figurinhas, integrado a um web app que funciona como comunidade e rede social.",
+      en: "Discord bot with minigames and sticker albums, integrated with a web app that works as a community and social network.",
+      es: "Bot de Discord con minijuegos y álbumes de cromos, integrado a una web app que funciona como comunidad y red social."
+    }
+  },
+  {
+    name: "PROJETO FREELANCE #1",
+    tags: ["Freelance", "Product Design", "Em andamento"],
+    link: "#",
+    desc: {
+      pt: "Atuação como Product Designer freelancer. O projeto encontra-se em desenvolvimento no momento.",
+      en: "Acting as a freelance Product Designer. The project is currently under development.",
+      es: "Actuando como Product Designer freelance. El proyecto se encuentra actualmente en desarrollo."
+    }
+  },
+  {
+    name: "PROJETO FREELANCE #2",
+    tags: ["Freelance", "UX/UI", "Em andamento"],
+    link: "#",
+    desc: {
+      pt: "Projeto freelancer em fase de discovery e ideação, sob acordo de confidencialidade (NDA).",
+      en: "Freelance project in discovery and ideation phase, under non-disclosure agreement (NDA).",
+      es: "Proyecto freelance en fase de discovery e ideación, bajo acuerdo de confidencialidad (NDA)."
+    }
   }
 ];
+
+// Removed unused BEHANCE_PROJECTS since they are migrating out
 
 const PROCESS = [
   {
@@ -564,7 +595,7 @@ export default function App() {
           </div>
 
           {/* Contributions */}
-          <div className="mt-16 p-8 bg-brand-black/40 border border-brand-border flex flex-col md:flex-row items-center gap-8">
+          <div className="mt-16 mb-16 p-8 bg-brand-black/40 border border-brand-border flex flex-col md:flex-row items-center gap-8">
             <div className="font-mono text-[10px] text-brand-red/80 tracking-[0.28em] whitespace-nowrap">
               // {t('sectionContributions')}
             </div>
@@ -573,6 +604,36 @@ export default function App() {
                 <div key={c} className="px-6 py-2 border border-brand-border font-display text-[14px] tracking-widest text-brand-white/80">
                   {c}
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Personal Projects */}
+          <div className="mb-12">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="font-mono text-[10px] text-brand-red/80 tracking-[0.28em] whitespace-nowrap">
+                // {t('sectionPersonalProjects')}
+              </div>
+              <div className="flex-1 h-[1px] bg-brand-border" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {PERSONAL_PROJECTS.map((p, i) => (
+                <a key={i} href={p.link} target="_blank" rel="noreferrer" className="block bg-brand-black/20 p-6 border border-brand-border hover:border-brand-red/40 transition-colors group">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="font-display text-xl tracking-widest text-brand-white group-hover:text-brand-red transition-colors">{p.name}</h3>
+                    <ExternalLink className="w-4 h-4 text-brand-white/40 group-hover:text-brand-red/80 transition-colors" />
+                  </div>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {p.tags.map(tag => (
+                      <span key={tag} className="font-mono text-[8px] tracking-widest uppercase px-2 py-0.5 border border-brand-border text-brand-white/60">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-[12px] font-light leading-relaxed text-brand-white/60">
+                    {p.desc[lang]}
+                  </p>
+                </a>
               ))}
             </div>
           </div>
