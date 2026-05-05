@@ -35,9 +35,9 @@ const CONTENT: Content = {
   navSkills: { pt: 'Skills', en: 'Skills', es: 'Skills' },
   navContact: { pt: 'Contato', en: 'Contact', es: 'Contacto' },
   heroDesc: {
-    pt: '4+ anos no UOL liderando produtos digitais de ponta a ponta. Do discovery e mapeamento de jornada até protótipos de alta fidelidade com impacto real em conversão e retenção.',
-    en: '4+ years at UOL leading digital products end-to-end. From discovery and journey mapping to high-fidelity prototypes with real impact on conversion and retention.',
-    es: '4+ años en UOL liderando productos digitales de punta a punta. Desde el discovery y mapeo de jornada hasta prototipos de alta fidelidade con impacto real en conversión y retención.'
+    pt: '5 anos no UOL liderando produtos digitais de ponta a ponta. Do discovery e mapeamento de jornada até protótipos de alta fidelidade com impacto real em conversão e retenção.',
+    en: '5 years at UOL leading digital products end-to-end. From discovery and journey mapping to high-fidelity prototypes with real impact on conversion and retention.',
+    es: '5 años en UOL liderando productos digitales de punta a punta. Desde el discovery y mapeo de jornada hasta prototipos de alta fidelidade con impacto real en conversión y retención.'
   },
   heroBtnSee: { pt: 'Ver produtos', en: 'See products', es: 'Ver productos' },
   statsYears: { pt: 'Anos no UOL', en: 'Years at UOL', es: 'Años en UOL' },
@@ -470,13 +470,14 @@ export default function App() {
               </a>
               <a href="https://www.behance.net/pedroyuritessari" target="_blank" className="btn-wire" aria-label="Behance Profile">Behance</a>
               <a href="https://www.linkedin.com/in/peyurit" target="_blank" className="btn-wire" aria-label="LinkedIn Profile">LinkedIn</a>
+              <a href="https://github.com/pytessari" target="_blank" className="btn-wire" aria-label="GitHub Profile">GitHub</a>
             </div>
           </div>
 
           <div className="hidden lg:flex flex-col border-l border-brand-border">
             <div className="flex-1 grid grid-cols-2 gap-[1px] bg-brand-border">
               {[
-                { val: '4+', lbl: t('statsYears'), ghost: '4' },
+                { val: '5', lbl: t('statsYears'), ghost: '5' },
                 { val: '8+', lbl: t('statsProducts'), ghost: '8' },
                 { val: '2×', lbl: t('statsGrad'), ghost: '2' }
               ].map((s, i) => (
@@ -674,6 +675,9 @@ export default function App() {
               <a href="https://www.behance.net/pedroyuritessari" target="_blank" className="btn-wire px-10 py-4 text-[12px]" aria-label="Behance Profile">
                 Behance
               </a>
+              <a href="https://github.com/pytessari" target="_blank" className="btn-wire px-10 py-4 text-[12px]" aria-label="GitHub Profile">
+                GitHub
+              </a>
             </div>
           </motion.div>
         </section>
@@ -693,6 +697,7 @@ export default function App() {
             <div className="flex flex-col gap-3">
               <a href="https://www.linkedin.com/in/peyurit" target="_blank" className="font-mono text-[11px] tracking-widest uppercase text-brand-white/70 hover:text-brand-white transition-colors">LinkedIn</a>
               <a href="https://www.behance.net/pedroyuritessari" target="_blank" className="font-mono text-[11px] tracking-widest uppercase text-brand-white/70 hover:text-brand-white transition-colors">Behance</a>
+              <a href="https://github.com/pytessari" target="_blank" className="font-mono text-[11px] tracking-widest uppercase text-brand-white/70 hover:text-brand-white transition-colors">GitHub</a>
               <a href="mailto:pytessari@gmail.com" className="font-mono text-[11px] tracking-widest uppercase text-brand-white/70 hover:text-brand-white transition-colors">Email</a>
             </div>
           </div>
