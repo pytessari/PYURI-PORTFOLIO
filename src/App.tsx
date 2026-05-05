@@ -148,12 +148,12 @@ const CONTRIBUTIONS = ["BATE-PAPO UOL", "UOL PLAY", "+ OUTROS"];
 const PERSONAL_PROJECTS = [
   {
     name: "MANEKI",
-    tags: ["Product Design", "Discord Bot", "UX/UI"],
+    tags: ["Design & Code", "Discord Bot", "UX/UI"],
     link: "https://top.gg/pt/bot/1487940081044951090",
     desc: {
-      pt: "Bot multifuncional para o Discord. Design de produto focado em utilidades de comunidade, moderação e engajamento.",
-      en: "Multifunctional Discord Bot. Product design focused on community utilities, moderation, and engagement.",
-      es: "Bot multifuncional para Discord. Diseño de producto centrado en utilidades de comunidad, moderación y compromiso."
+      pt: "Bot multifuncional para o Discord. Responsável tanto pelo design de produto quanto pelo desenvolvimento do código, focado em comunidade.",
+      en: "Multifunctional Discord bot. Responsible for both product design and code development, focused on community utilities.",
+      es: "Bot multifuncional para Discord. Responsable tanto del diseño de producto como del desarrollo del código, centrado en comunidad."
     }
   },
   {
@@ -168,12 +168,12 @@ const PERSONAL_PROJECTS = [
   },
   {
     name: "TOKYO",
-    tags: ["Discord Bot", "Web App", "Community"],
+    tags: ["Design & Code", "Discord Bot", "Web App"],
     link: "https://tokyofk.lovable.app/",
     desc: {
-      pt: "Bot para Discord com minigames e álbuns de figurinhas, integrado a um web app que funciona como comunidade e rede social.",
-      en: "Discord bot with minigames and sticker albums, integrated with a web app that works as a community and social network.",
-      es: "Bot de Discord con minijuegos y álbumes de cromos, integrado a una web app que funciona como comunidad y red social."
+      pt: "Bot para Discord e web app de comunidade. Atuei em todo o processo, do design da plataforma UX/UI à programação do código.",
+      en: "Discord bot and community web app. I worked on the entire process, from the UX/UI platform design to code development.",
+      es: "Bot de Discord y web app de comunidad. Trabajé en todo el proceso, desde el diseño base UX/UI hasta la programación del código."
     }
   },
   {
